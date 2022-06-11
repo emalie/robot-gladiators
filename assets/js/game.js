@@ -75,7 +75,7 @@ playerInfo.reset();
         if(playerInfo.health > 0) {
             // Let player know what round they are in
             window.alert("Welcome to Robot Gladiators! Round " + (i+1));
-
+            
             // Pick new enemy to fight based on the index of the enemy array
             var pickedEnemyObj = enemyInfo[i];
 
@@ -156,13 +156,22 @@ var shopOptionPrompt = window.prompt("Would you like to REFILL your health, UPGR
             shop();
             break;
     }
+    // Function to set player's name
+    var getPlayerName = function() {
+    var name = "";
+        while (name === "" || name === null) {
+            name = prompt("What is your robot's name?");
+        }
+        console.log("Your robot's name is " + name);
+        return name;
+    };
 };
 /* GAME LOGIC ENDS */
 
 /* GAME INFORMATION / VARIABLES */
 // Player Information
 var playerInfo = {
-    name: window.prompt("What is your robot's name?"),
+    name: getPlayerName(),
     health: 100,
     attack: 10, 
     money: 10,
@@ -207,5 +216,3 @@ console.log(enemyInfo[0].attack);
 
 /* RUN GAME */
 startGame();
-
-
